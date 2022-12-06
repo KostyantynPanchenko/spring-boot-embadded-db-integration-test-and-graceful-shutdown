@@ -16,7 +16,9 @@ class EmployeeController {
   private final EmployeeRepository repository;
 
   @GetMapping("/employees")
-  public Collection<Employee> getAll() {
+  public Collection<Employee> getAll() throws InterruptedException {
+    // emulate long running task
+    Thread.sleep(3000L);
     return repository.findAll();
   }
 
